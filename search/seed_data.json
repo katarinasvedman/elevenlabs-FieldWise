@@ -1,0 +1,101 @@
+[
+  {
+    "id": "alarm-402-servo",
+    "category": "alarm",
+    "title": "Alarm 402 — Spindle Servo Overload",
+    "machine_or_material": "Alarm 402",
+    "group_id": "alarm-402",
+    "distinguishing_condition": "Comes up while actively cutting, under load with the feed engaged.",
+    "content": "Spindle servo overload. The drive is drawing more current than its rated continuous load, usually from too aggressive a cut. First response: ease off the feed rate, back the tool out, and check the spindle load meter before re-engaging. If the load is still pegged with a light cut, check for a dull or chipped tool and inspect the spindle belt tension."
+  },
+  {
+    "id": "alarm-402-encoder",
+    "category": "alarm",
+    "title": "Alarm 402 — Spindle Drive Encoder Fault",
+    "machine_or_material": "Alarm 402",
+    "group_id": "alarm-402",
+    "distinguishing_condition": "Comes up at power-on or during homing, before any cutting has started.",
+    "content": "Spindle encoder feedback fault, unrelated to cutting load. First response: power cycle the spindle drive, re-home the machine, and check the encoder cable connection at the back of the spindle motor for looseness or debris. If it recurs after re-homing, the encoder itself likely needs replacement — flag maintenance."
+  },
+  {
+    "id": "alarm-402-coolant",
+    "category": "alarm",
+    "title": "Alarm 402 — Coolant Intrusion in Spindle Housing",
+    "machine_or_material": "Alarm 402",
+    "group_id": "alarm-402",
+    "distinguishing_condition": "Comes up intermittently, and the machine has had a coolant leak or seal issue recently.",
+    "content": "Coolant has worked past the spindle seal and is fouling the servo winding, causing intermittent overload faults that don't correlate with cutting load. First response: stop the job, wipe down the spindle housing, and check the air-purge seal on the spindle nose. Do not keep running the job — this one gets worse, not better, and risks the spindle motor."
+  },
+  {
+    "id": "alarm-115",
+    "category": "alarm",
+    "title": "Alarm 115 — Tool Changer Position Fault",
+    "machine_or_material": "Alarm 115",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "The tool changer carousel didn't reach its expected position within the timeout window. First response: check for a tool or chip jam blocking the carousel, then manually jog the changer back to home and retry. If the fault repeats on the same pocket, that pocket's proximity sensor likely needs cleaning or adjustment."
+  },
+  {
+    "id": "alarm-208",
+    "category": "alarm",
+    "title": "Alarm 208 — Axis Overtravel (Soft Limit)",
+    "machine_or_material": "Alarm 208",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "An axis tried to move past its programmed soft limit. First response: check the last program move for a sign error or wrong work offset, jog the axis back inside the travel limits by hand, then clear the alarm. Re-verify your work offset (G54/G55) before restarting the cycle."
+  },
+  {
+    "id": "cutting-6061-aluminum",
+    "category": "cutting_data",
+    "title": "Cutting Data — 6061-T6 Aluminum",
+    "machine_or_material": "6061 Aluminum",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "6061-T6 aluminum, 1/2\" 4-flute carbide end mill: run 700–900 SFM (roughly 5,300–6,800 RPM), chip load 0.004–0.006 in/tooth. Flood coolant recommended to clear chips and control built-up edge. Climb mill where rigidity allows for a better finish."
+  },
+  {
+    "id": "cutting-4140-steel",
+    "category": "cutting_data",
+    "title": "Cutting Data — 4140 Steel (Annealed)",
+    "machine_or_material": "4140 Steel",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "4140 steel, annealed (~28–32 HRC), 1/2\" 4-flute carbide end mill: run 350–450 SFM (roughly 2,700–3,400 RPM), chip load 0.003–0.004 in/tooth. Flood coolant required. Reduce SFM by 20-30% if running the pre-hardened condition instead of annealed."
+  },
+  {
+    "id": "cutting-316-stainless",
+    "category": "cutting_data",
+    "title": "Cutting Data — 316 Stainless Steel",
+    "machine_or_material": "316 Stainless Steel",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "316 stainless, 1/2\" 4-flute carbide end mill: run 150–250 SFM (roughly 1,150–1,900 RPM), chip load 0.002–0.003 in/tooth. Keeps a low speed on purpose — 316 work-hardens fast, so keep the feed steady and constant, never dwell in the cut, and keep coolant flowing continuously."
+  },
+  {
+    "id": "cutting-delrin-acetal",
+    "category": "cutting_data",
+    "title": "Cutting Data — Delrin (Acetal)",
+    "machine_or_material": "Delrin Acetal",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "Delrin/acetal, 1/2\" 4-flute carbide end mill: run 800–1,200 SFM (roughly 6,100–9,200 RPM), chip load 0.006–0.010 in/tooth. Coolant is optional — air blast is usually enough; too much heat can re-melt and weld chips back onto the part. Run a sharp tool to avoid burnishing the surface."
+  },
+  {
+    "id": "safety-lockout-tagout",
+    "category": "safety",
+    "title": "Safety — Lockout/Tagout Before Clearing a Jam",
+    "machine_or_material": "Lockout/Tagout",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "Before reaching into the work envelope to clear a chip jam, broken tool, or blocked tool changer: hit E-stop, switch the machine's main disconnect to off, and apply your personal lock and tag. Never rely on the cycle-stop or door interlock alone to keep the spindle or axes from moving."
+  },
+  {
+    "id": "safety-estop-reset",
+    "category": "safety",
+    "title": "Safety — Emergency Stop Reset Procedure",
+    "machine_or_material": "Emergency Stop",
+    "group_id": "",
+    "distinguishing_condition": "",
+    "content": "After an E-stop: confirm the cause is cleared and the work envelope is empty of hands and tools, twist-release the E-stop button, then re-home all axes before resuming the program. Never resume mid-cycle without re-homing after an E-stop — position reference can't be trusted."
+  }
+]

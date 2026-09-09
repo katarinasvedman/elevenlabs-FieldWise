@@ -1,0 +1,22 @@
+{
+  "_comment": "Field names match the ElevenLabs dashboard's webhook tool builder (Agent > Tools > Add tool > Webhook).",
+  "type": "webhook",
+  "name": "search_knowledge_base",
+  "description": "Look up machining knowledge — alarm codes and first-response steps, cutting speeds/feeds by material, and safety procedures — from the shop's live knowledge base. Call this whenever the technician describes a problem, an alarm code, or asks a machining question.",
+  "method": "POST",
+  "url": "https://<your-function-app>.azurewebsites.net/api/search-lookup?code=<function-key>",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "request_body_schema": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "The technician's question, restated clearly for search — e.g. 'alarm 402' or 'cutting speed for 6061 aluminum'."
+      }
+    },
+    "required": ["query"]
+  },
+  "response_notes": "Backend returns { found, answer, needs_clarification, candidates: [{label, detail, distinguishing_condition}] }. See agent/system_prompt.md for how the agent should use needs_clarification/candidates to ask one follow-up question without calling this tool a second time."
+}

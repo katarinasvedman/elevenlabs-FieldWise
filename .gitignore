@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+function/local.settings.json
+function/deploy.zip
+.python_packages/
+.venv/
+agent/.workflow_agent_id
+scratch_*.json
+
+# Recording prep, not deliverable content -- cue sheet + mock demo page for the Loom
+docs/demo-script.md
+demo/

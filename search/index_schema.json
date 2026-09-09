@@ -1,0 +1,16 @@
+{
+  "name": "fieldpilot-knowledge",
+  "fields": [
+    { "name": "id", "type": "Edm.String", "key": true, "filterable": true },
+    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true, "searchable": false },
+    { "name": "title", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "machine_or_material", "type": "Edm.String", "searchable": true, "filterable": true, "facetable": true },
+    { "name": "distinguishing_condition", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "group_id", "type": "Edm.String", "filterable": true, "searchable": false }
+  ],
+  "notes": {
+    "group_id": "Rows that are alternate causes for the same symptom (e.g. the 3 alarm-402 causes) share a group_id. create_index.py groups the top hits by group_id so a multi-cause query returns every candidate in one response instead of just the single best-scoring row.",
+    "distinguishing_condition": "Only populated on rows that belong to a multi-cause group. Empty string for single-answer rows (cutting data, safety, single-cause alarms)."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "_comment": "Reference for the ElevenLabs dashboard's webhook tool builder. This tool calls the Slack Incoming Webhook URL directly — no Azure Function in between, per the brief's 'simple to wire' framing for the escalation path.",
+  "type": "webhook",
+  "name": "escalate_to_supervisor",
+  "description": "Flag a supervisor in Slack when the technician says an issue isn't resolved, or directly asks for help/a supervisor.",
+  "method": "POST",
+  "url": "https://hooks.slack.com/services/<workspace>/<channel>/<token>",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "request_body_schema": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "description": "One line summary Slack will display, e.g. '🚨 FieldWise escalation — machine 12: alarm 402 not resolved after servo-overload troubleshooting.' Include the machine ID if the technician gave one and a short issue summary."
+      }
+    },
+    "required": ["text"]
+  },
+  "response_notes": "Slack incoming webhooks reply with the plain text 'ok' on success (HTTP 200), not JSON — the agent just needs to know the call succeeded to confirm out loud."
+}
