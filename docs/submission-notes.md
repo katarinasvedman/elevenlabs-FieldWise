@@ -1,5 +1,40 @@
 # Submission notes (for the Ashby written aside)
 
+## Architecture
+Two different integration patterns, deliberately — a customer-controlled webhook for
+knowledge lookup, a pre-built native connector for escalation. Both reach into systems
+the customer already runs; neither duplicates their data into ElevenLabs.
+
+```mermaid
+flowchart LR
+    subgraph SF["Shop floor"]
+        Widget["Web app<br/>(ElevenLabs agent widget)"]
+    end
+
+    subgraph EL["ElevenLabs platform"]
+        Agent["Workflow agent<br/>(FieldWise)"]
+    end
+
+    subgraph AZ["Customer's Azure"]
+        Func["Azure Function<br/>(search-lookup)"]
+        Search["Azure AI Search<br/>(fieldpilot-knowledge index)"]
+    end
+
+    subgraph SNOW["Customer's ServiceNow"]
+        SN["Incident table<br/>(create_incident)"]
+    end
+
+    Widget -- voice --> Agent
+    Agent -- "webhook tool<br/>(customer-controlled)" --> Func
+    Func -- "Azure AI Search SDK" --> Search
+    Agent -- "native integration<br/>(pre-built connector)" --> SN
+```
+
+The two right-hand branches are the two things this doc argues about below: why the
+knowledge path is a webhook into a backend we control (and why a Function sits between
+the agent and Azure AI Search rather than calling it directly), and what actually
+happened when escalation instead went through ElevenLabs' pre-built connector.
+
 ## Why a webhook tool, not ElevenLabs' native knowledge base
 The native KB upload means duplicating a customer's documentation into a third-party vendor's
 storage — that's stale the moment the source docs change, and it's a governance/security
