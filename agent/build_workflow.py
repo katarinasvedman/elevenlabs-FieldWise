@@ -98,9 +98,12 @@ WORKFLOW = {
             "position": {"x": 0, "y": 1050},
             "additional_prompt": (
                 "SPEAK FIRST, before calling any tool or ending the call: tell the "
-                "technician you've logged an incident in ServiceNow so maintenance can "
-                "take over, and advise them to shut the machine down and follow standard "
-                "lockout/tagout procedure while they wait. Two short sentences, max. Do "
+                "technician you've logged the incident in ServiceNow so maintenance can "
+                "take over. Say the incident number from the create_incident result out "
+                "loud and clearly, reading the digits individually (for example "
+                "'incident I-N-C-0-0-1-0-0-4-2') so they can note it down. Then advise "
+                "them to shut the machine down and follow standard lockout/tagout "
+                "procedure while they wait. Keep it to two or three short sentences. Do "
                 "not end or transition the conversation until you have said this out "
                 "loud."
             ),
