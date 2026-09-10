@@ -2,9 +2,10 @@
 
 **Agent:** https://elevenlabs.io/app/agents/agents/agent_1401m216hed0eec9p6k3vfsmbge7
 
-**Example Conversation ID:** `[TODO — grab a clean one from Friday's recording session]`
+**Example Conversation ID:** `conv_3701m25z8e11f8qtzqrmww0f80sj`
+_(clean full golden-path run — swap for the exact take shown in the Loom if you prefer)_
 
-**Loom:** `[TODO — paste link after recording]`
+**Loom:** https://www.loom.com/share/b4456951ea324455983a12fe55ab81ac
 
 ---
 
