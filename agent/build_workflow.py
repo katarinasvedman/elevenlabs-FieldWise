@@ -12,7 +12,7 @@ out to be a misread: those two fields really are resolved from the tool's
 confirmed by inspecting two live conversations, both showing the params correctly filled
 in (`dev292793`/`service-now.com`) and a real incident created. So the API's rejection of
 the override was actually *correct* (you can't override a value the platform already
-supplies properly). No fix needed here after all -- see docs/submission-notes.md for the
+supplies properly). No fix needed here after all -- see docs/technical-writeup.md for the
 full corrected writeup, including the separate, real bug this build did find (an
 override_agent node calling its next workflow-transition tool before speaking, fixed
 below via explicit "speak first" wording on each node's additional_prompt).

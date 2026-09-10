@@ -29,7 +29,7 @@ the underlying solution accelerator for).
 > escalation confirmation) living on individual workflow nodes instead. Two agents exist:
 > the original flat-prompt one (`agent_9001m1ye0esbfxd8qcrrr8tvzy0g`, untouched, kept as a
 > fallback) and the workflow rebuild (`agent_1401m216hed0eec9p6k3vfsmbge7`, what the demo
-> actually runs on). Full rationale in `docs/submission-notes.md`.
+> actually runs on). Full rationale in `docs/technical-writeup.md`.
 
 **2. Tool #1 — Knowledge lookup via Azure AI Search (the core integration)**
 - NOT using ElevenLabs' native RAG/knowledge-base upload feature — deliberately, because in
@@ -58,7 +58,7 @@ the underlying solution accelerator for).
 > conversations (real incident numbers created, e.g. `INC0010002`) — an earlier pass
 > through this build misdiagnosed it as platform-broken based on its static tool
 > definition alone (its `instance`/`domain` path params look unpopulated at rest, but
-> resolve correctly from the connection at call time). See `docs/submission-notes.md` for
+> resolve correctly from the connection at call time). See `docs/technical-writeup.md` for
 > that correction, and for a real workflow bug this build did find and fix along the way.
 
 **4. Golden demo path (what the Loom will walk through)**

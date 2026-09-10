@@ -110,7 +110,7 @@ python build_workflow.py    # adds the 8-node workflow + shrinks the base prompt
 ```
 Both scripts re-fetch the live agent before writing, so re-running `build_workflow.py` after
 editing `WORKFLOW` or `BASE_SYSTEM_PROMPT` in that file pushes the change without disturbing
-anything else (voice, tool references, etc.). See `docs/submission-notes.md` for why this
+anything else (voice, tool references, etc.). See `docs/technical-writeup.md` for why this
 approach was used, the tools-vs-tool_ids and duplicate-edge API quirks hit along the way, a
 misdiagnosed-then-corrected ServiceNow tool investigation, and a real workflow bug found and
 fixed (nodes skipping their spoken line before transitioning).

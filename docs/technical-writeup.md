@@ -1,4 +1,4 @@
-# Submission notes (for the Ashby written aside)
+# Technical writeup — design decisions and platform findings
 
 ## Architecture
 Two different integration patterns, deliberately — a customer-controlled webhook for
